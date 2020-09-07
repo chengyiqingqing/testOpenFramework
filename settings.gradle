@@ -1,0 +1,2 @@
+include ':app', ':_01testokhttp', ':_02testretrofit', ':_03testglide', ':_04testleakcanary', ':_05testbutterknife', ':_06testblockcanary', ':_07testeventbus', ':_08testdragger2', ':_09testrxjava'
+rootProject.name='testOpenFramework'
