@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.meitu.testretrofit.dynamicProxy.Main;
 
@@ -24,12 +25,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        doMain();
-        doRequest();
+//        doRequest();
+
+        findViewById(R.id.button_click).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                doRequest();
+            }
+        });
     }
+
+
 
     public static void doMain() {
         Main.main();
     }
+
+
 
     public void doRequest() {
         try {
