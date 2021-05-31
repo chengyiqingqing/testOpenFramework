@@ -12,7 +12,7 @@ public class Cusumer implements BuyInterface {
 
     @Override
     public void buy() {
-        Log.d(TAG, "buy() called:消费者购买");
+        Log.e(TAG, "buy() called:消费者购买");
     }
 
 }

@@ -34,7 +34,7 @@ public class HandlerLeakActivity extends Activity {
             public void run() {
 
             }
-        }, 60 * 1000);
+        }, 600 * 1000);
         finish();
     }
 

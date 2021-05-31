@@ -2,7 +2,10 @@ package com.meitu.testleakcanary;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+
+import com.squareup.haha.perflib.Main;
 
 /**
  * （1）内存泄漏由谁产生的？导致了谁内存泄漏？
@@ -27,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        startActivity(new Intent(MainActivity.this, HandlerLeakActivity.class));
 
     }
 

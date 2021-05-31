@@ -1,14 +1,12 @@
 package com.meitu.testretrofit;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.meitu.testretrofit.dynamicProxy.Main;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.IOException;
+import com.meitu.testretrofit.dynamicProxy.Main;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        doMain();
+        doMain();
 //        doRequest();
 
         findViewById(R.id.button_click).setOnClickListener(new View.OnClickListener() {
@@ -35,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void testProxy(String content) {
 
+    }
 
     public static void doMain() {
         Main.main();
@@ -46,15 +46,16 @@ public class MainActivity extends AppCompatActivity {
     public void doRequest() {
         try {
             Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("https://www.baidu.com/")
 //                    .baseUrl("http://httpbin.org/")
-                    .baseUrl("http://mock-api.com/")
+//                    .baseUrl("http://mock-api.com/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             TestService testService = retrofit.create(TestService.class);
-//            Call call = testService.getBaidu("http://httpbin.org/get?id=sww&sww=false");
+            Call call = testService.getBaidu("111");
 //            Call call = testService.getUserModel("http://httpbin.org/get?id=swwId&sww=false");
 //            Call call = testService.getUserModel("http://mock-api.com/aKbvvyKx.mock/user_info?id=1234&name=sww");
-            Call call = testService.getUserModel("1234", "sww");
+//            Call call = testService.getUserModel("1234", "sww");
 //            Call call = testService.getUserInfo();
             call.enqueue(new Callback() {
                 @Override
@@ -67,6 +68,20 @@ public class MainActivity extends AppCompatActivity {
                     Log.e(TAG, "onFailure() called with: t = [" + t + "]");
                 }
             });
+
+            /*call.enqueue(new Callback<ResponseModel>() {
+
+                @Override
+                public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+
+                }
+
+                @Override
+                public void onFailure(Call<ResponseModel> call, Throwable t) {
+
+                }
+            });*/
+
         } catch (Throwable throwable) {
             Log.e(TAG, "onFailure() called with: t = [" + throwable.getMessage() + "]");
             throwable.printStackTrace();

@@ -14,12 +14,16 @@ public interface TestService {
     /*@GET("user/{name}")
     Call getUserInfo(@Path("name") String name);*/
 
+    @GET
+    Call getBaidu(@Query("id") String id);
+//    Call<String> getBaidu();
+//    Call<String> getBaidu(@Url String url);
+
     @GET("/get?id=sww&sww=fals")
     Call getUserInfo();
-//    Call getUserInfo(@Query("id") String id, @Query("sww") String name);
 
-    @GET
-    Call<String> getBaidu(@Url String url);
+//    @GET
+//    Call getUserInfo(@Query("get?id") String id, @Query("sww") String name);
 
     @GET
     Call<ResponseModel> getUserModel(@Url String url);
