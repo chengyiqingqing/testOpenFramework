@@ -1,6 +1,8 @@
 package com.meitu.testretrofit;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import retrofit2.http.Url;
@@ -15,8 +17,9 @@ public interface TestService {
     Call getUserInfo(@Path("name") String name);*/
 
     @GET
-    Call getBaidu(@Query("id") String id);
-//    Call<String> getBaidu();
+//    Call getBaidu(@Query("id") String id);
+//    Call<String> getBaidu(@Url String relativePath);
+    Call<ResponseBody> getBaidu(@Url String relativePath);
 //    Call<String> getBaidu(@Url String url);
 
     @GET("/get?id=sww&sww=fals")
